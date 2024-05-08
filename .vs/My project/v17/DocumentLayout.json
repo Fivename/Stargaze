@@ -1,0 +1,253 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\UnityProjects\\My project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|d:\\unityprojects\\my project\\assets\\script\\carddesign\\playerdeck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\carddesign\\playerdeck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|D:\\UnityProjects\\My project\\assets\\script\\carddesign\\carditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\carddesign\\carditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|d:\\unityprojects\\my project\\assets\\script\\carddesign\\handcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\carddesign\\handcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|d:\\unityprojects\\my project\\assets\\script\\manager\\handcardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\manager\\handcardmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|D:\\UnityProjects\\My project\\assets\\script\\charactor\\stardatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\charactor\\stardatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|D:\\UnityProjects\\My project\\assets\\script\\carddesign\\carddatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\carddesign\\carddatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|D:\\UnityProjects\\My project\\assets\\script\\manager\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\manager\\battlemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|d:\\unityprojects\\my project\\assets\\script\\tool\\tool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\tool\\tool.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|D:\\UnityProjects\\My project\\assets\\script\\carddesign\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\carddesign\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|D:\\UnityProjects\\My project\\assets\\script\\charactor\\star.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\charactor\\star.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|D:\\UnityProjects\\My project\\assets\\script\\carddesign\\buff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\carddesign\\buff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|D:\\UnityProjects\\My project\\assets\\script\\charactor\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\charactor\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|D:\\UnityProjects\\My project\\assets\\script\\manager\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32C3BDE6-E125-3128-82C1-25D0441455A3}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\manager\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\10907\\AppData\\Roaming\\UnityHub\\cloudConfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HandCardManager.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\My project\\Assets\\Script\\Manager\\HandCardManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Manager\\HandCardManager.cs",
+              "ToolTip": "D:\\UnityProjects\\My project\\Assets\\Script\\Manager\\HandCardManager.cs",
+              "RelativeToolTip": "Assets\\Script\\Manager\\HandCardManager.cs",
+              "ViewState": "AQIAAD4BAAAAAAAAAAAhwBYBAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-26T07:46:13.808Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BattleManager.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\My project\\Assets\\Script\\Manager\\BattleManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Manager\\BattleManager.cs",
+              "ToolTip": "D:\\UnityProjects\\My project\\Assets\\Script\\Manager\\BattleManager.cs",
+              "RelativeToolTip": "Assets\\Script\\Manager\\BattleManager.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwBUAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-29T07:14:43.109Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Star.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\My project\\Assets\\Script\\Charactor\\Star.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Charactor\\Star.cs",
+              "ToolTip": "D:\\UnityProjects\\My project\\Assets\\Script\\Charactor\\Star.cs",
+              "RelativeToolTip": "Assets\\Script\\Charactor\\Star.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAswBQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T10:59:40.011Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PlayerDeck.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\My project\\Assets\\Script\\CardDesign\\PlayerDeck.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\CardDesign\\PlayerDeck.cs",
+              "ToolTip": "D:\\UnityProjects\\My project\\Assets\\Script\\CardDesign\\PlayerDeck.cs",
+              "RelativeToolTip": "Assets\\Script\\CardDesign\\PlayerDeck.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAgwC0AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T09:08:34.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HandCard.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\My project\\Assets\\Script\\CardDesign\\HandCard.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\CardDesign\\HandCard.cs",
+              "ToolTip": "D:\\UnityProjects\\My project\\Assets\\Script\\CardDesign\\HandCard.cs",
+              "RelativeToolTip": "Assets\\Script\\CardDesign\\HandCard.cs",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAowAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T09:01:07.411Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Tool.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\My project\\Assets\\Script\\Tool\\Tool.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Tool\\Tool.cs",
+              "ToolTip": "D:\\UnityProjects\\My project\\Assets\\Script\\Tool\\Tool.cs",
+              "RelativeToolTip": "Assets\\Script\\Tool\\Tool.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T07:19:19.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CardItem.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\My project\\Assets\\Script\\CardDesign\\CardItem.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\CardDesign\\CardItem.cs",
+              "ToolTip": "D:\\UnityProjects\\My project\\Assets\\Script\\CardDesign\\CardItem.cs",
+              "RelativeToolTip": "Assets\\Script\\CardDesign\\CardItem.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T07:06:44.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StarDatabase.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\My project\\Assets\\Script\\Charactor\\StarDatabase.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Charactor\\StarDatabase.cs",
+              "ToolTip": "D:\\UnityProjects\\My project\\Assets\\Script\\Charactor\\StarDatabase.cs",
+              "RelativeToolTip": "Assets\\Script\\Charactor\\StarDatabase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAswAsAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T02:51:38.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CardDatabase.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\My project\\Assets\\Script\\CardDesign\\CardDatabase.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\CardDesign\\CardDatabase.cs",
+              "ToolTip": "D:\\UnityProjects\\My project\\Assets\\Script\\CardDesign\\CardDatabase.cs",
+              "RelativeToolTip": "Assets\\Script\\CardDesign\\CardDatabase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAIwAYAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-14T06:54:37.94Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "cloudConfig.json",
+              "DocumentMoniker": "C:\\Users\\10907\\AppData\\Roaming\\UnityHub\\cloudConfig.json",
+              "ToolTip": "C:\\Users\\10907\\AppData\\Roaming\\UnityHub\\cloudConfig.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-11T17:21:42.528Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Player.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\My project\\Assets\\Script\\Charactor\\Player.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Charactor\\Player.cs",
+              "ToolTip": "D:\\UnityProjects\\My project\\Assets\\Script\\Charactor\\Player.cs",
+              "RelativeToolTip": "Assets\\Script\\Charactor\\Player.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABYAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T11:26:53.593Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "PlayerManager.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\My project\\Assets\\Script\\Manager\\PlayerManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\Manager\\PlayerManager.cs",
+              "ToolTip": "D:\\UnityProjects\\My project\\Assets\\Script\\Manager\\PlayerManager.cs",
+              "RelativeToolTip": "Assets\\Script\\Manager\\PlayerManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T11:02:30.642Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Buff.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\My project\\Assets\\Script\\CardDesign\\Buff.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\CardDesign\\Buff.cs",
+              "ToolTip": "D:\\UnityProjects\\My project\\Assets\\Script\\CardDesign\\Buff.cs",
+              "RelativeToolTip": "Assets\\Script\\CardDesign\\Buff.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAwwBEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T00:39:10.805Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Card.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\My project\\Assets\\Script\\CardDesign\\Card.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\CardDesign\\Card.cs",
+              "ToolTip": "D:\\UnityProjects\\My project\\Assets\\Script\\CardDesign\\Card.cs",
+              "RelativeToolTip": "Assets\\Script\\CardDesign\\Card.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAmwBEAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-14T03:21:05.251Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
