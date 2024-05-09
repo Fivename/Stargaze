@@ -1,11 +1,35 @@
-*.csproj
-*.unityproj
-*.sln
+# Unity Project Files
+Temp/
+Library/
+*.vs
 *.suo
-*.tmp
 *.user
 *.userprefs
+ 
+# Unity Generated Files
+AssetServer/
+Build/
+Logs/
+obj/
+ 
+# Unity Meta Files
 *.pidb
-*.booproj
-*.svd
-*.vsid
+*.pdb.meta
+ 
+# Unity Library Files
+*.dll
+*.dylib
+*.so
+ 
+# Unity Editor Files
+[Ee]ditor/
+[Ee]ditors/
+ 
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
