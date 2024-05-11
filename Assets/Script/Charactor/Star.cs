@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+//µ–»À Ù–‘…Ë÷√
+[Serializable]
 public class Star
 {
     public int StarID;
@@ -10,6 +12,7 @@ public class Star
     public string Description;
     public int Hp;
     public int Attack;
+    public List<Intension> intensions;
     public Star()
     {
 
@@ -22,4 +25,12 @@ public class Star
 public class NormalStar : Star
 {
     
+}
+public enum Intension
+{
+    attack=0,
+    defense=1,
+    debuff=2,
+    buff=3,
+    unknow = 99
 }

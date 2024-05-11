@@ -1930,6 +1930,39 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 877750477879584041, guid: 25cc05d43e69f2f47b8a7e3b6a0841f6, type: 3}
   m_PrefabInstance: {fileID: 1719139664}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &772605304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 772605305}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &772605305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772605304}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5859672, y: 0.008477211, z: -900.0717}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 903722659}
+  - {fileID: 1668078183}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &862339008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2124,6 +2157,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889023155}
   m_CullTransparentMesh: 1
+--- !u!1 &903722658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 903722659}
+  - component: {fileID: 903722660}
+  m_Layer: 0
+  m_Name: HandCardManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &903722659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903722658}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 772605305}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &903722660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903722658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c3e850517857342a24448a944e99fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootPos: {x: 0, y: -1950, z: 0}
+  HandCard: {fileID: 8735522651864236016, guid: 25cc05d43e69f2f47b8a7e3b6a0841f6, type: 3}
+  size: 2000
+  rightPos: -10
+  leftPos: 10
+  cardPos: {fileID: 1749658435}
+  extendDegree: 2
+  selectExtendDegree: 1
+  CardMaxCount: 9
+  cardPool:
+  - {fileID: 641484951}
+  - {fileID: 311645457}
+  - {fileID: 38273347}
+  - {fileID: 13805222}
+  - {fileID: 1539175646}
+  - {fileID: 246669082}
+  - {fileID: 862339010}
+  - {fileID: 551517540}
+  rotPos: []
+  oddPos: []
+  evenPos: []
+  upRate: 30
+  curSelectIndex: 0
+  isDebug: 0
 --- !u!1 &909188786 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8735522651864236016, guid: 25cc05d43e69f2f47b8a7e3b6a0841f6, type: 3}
@@ -2347,7 +2448,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1122939508}
   - component: {fileID: 1122939509}
-  - component: {fileID: 1122939510}
   m_Layer: 5
   m_Name: HandCard
   m_TagString: Untagged
@@ -2409,42 +2509,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1122939510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1122939507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8c3e850517857342a24448a944e99fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rootPos: {x: 0, y: -1950, z: 0}
-  HandCard: {fileID: 8735522651864236016, guid: 25cc05d43e69f2f47b8a7e3b6a0841f6, type: 3}
-  size: 2000
-  rightPos: -10
-  leftPos: 10
-  cardPos: {fileID: 1749658435}
-  extendDegree: 2
-  selectExtendDegree: 1
-  CardMaxCount: 9
-  cardPool:
-  - {fileID: 641484951}
-  - {fileID: 311645457}
-  - {fileID: 38273347}
-  - {fileID: 13805222}
-  - {fileID: 1539175646}
-  - {fileID: 246669082}
-  - {fileID: 862339010}
-  - {fileID: 551517540}
-  rotPos: []
-  oddPos: []
-  evenPos: []
-  upRate: 30
-  curSelectIndex: 0
-  isDebug: 0
 --- !u!1001 &1147878157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3415,6 +3479,65 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1668078182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1668078183}
+  - component: {fileID: 1668078184}
+  m_Layer: 0
+  m_Name: BattleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1668078183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668078182}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 772605305}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1668078184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668078182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e61f01bb541924f8d25eff9285b2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curStar:
+    StarID: 0
+    Name: 
+    Description: 
+    Hp: 0
+    Attack: 0
+    intensions: 
+  player:
+    Id: 0
+    maxHp: 0
+    curHp: 0
+    name: 0
+    cardCount: 0
+    cardList: []
+    cardSet: []
 --- !u!1 &1701291043
 GameObject:
   m_ObjectHideFlags: 0
@@ -4472,5 +4595,6 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 340434500}
+  - {fileID: 772605305}
   - {fileID: 1728750127}
   - {fileID: 1936897174}

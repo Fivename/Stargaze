@@ -8,6 +8,7 @@ public class StarDatabase
     public static void Init()
     {
         starList.Clear();
+        //star行动循环 attack -> defense 等
         Star star = new Star(1,"五米","测试",30,5);
         starList.Add(star);
     }

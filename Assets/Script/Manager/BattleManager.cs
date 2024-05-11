@@ -10,10 +10,10 @@ public class BattleManager : MonoBehaviour
     /// <summary>
     /// Õ½¶·Êý¾Ý
     /// </summary>
-    public int starHp;
-    public int starMaxHp;
-    public int playerHp;
-    public int playeerMaxHp;
+    private int starHp;
+    private int starMaxHp;
+    private int playerHp;
+    private int playerMaxHp;
     
     void Awake()
     {
@@ -32,7 +32,9 @@ public class BattleManager : MonoBehaviour
         //SetStar();
         player = Player.GetInstance();
         curStar = StarDatabase.starList[0];
-
+        starHp = starMaxHp = curStar.Hp;
+        playerHp = player.curHp;
+        playerMaxHp = player.maxHp;
     }
     public void SetStar(Star star)
     {
