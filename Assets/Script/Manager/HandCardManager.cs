@@ -86,7 +86,7 @@ public class HandCardManager : MonoBehaviour
         SelectItemDetection();//射线检测
         TaskItemDetection();
         RefereshCard();
-        if(curPreviewCard!=null)Debug.Log(curPreviewCard.handCard.name);
+        //if(curPreviewCard!=null)Debug.Log(curPreviewCard.handCard.name);
     }
     /// <summary>  
     /// 数据初始化  
@@ -104,10 +104,28 @@ public class HandCardManager : MonoBehaviour
     public List<float> UpdateRotPos(int count)
     {
         List<float> rotPos = new List<float>();
-        float interval = (rightPos - leftPos) / count;
+        //float interval = (rightPos - leftPos) / count;
+        float interval = (rightPos - leftPos) / (4+count);
+        bool isOdd = count % 2 == 1;
         for (int i = 0; i < count; i++)
         {
-            float nowPos = leftPos + interval * (i+0.5f);
+            //float nowPos = leftPos + interval * (i+0.5f);
+            float nowPos;
+            if (isOdd)
+            {
+                nowPos = interval * (i - count / 2);
+            }
+            else
+            {
+                if (i < count / 2)
+                {
+                    nowPos = interval * (i - count / 2 + 0.5f);
+                }
+                else
+                {
+                    nowPos = interval * (i + 1 - count / 2 - 0.5f);
+                }
+            }
             rotPos.Add(nowPos);
         }
         return rotPos;
@@ -195,7 +213,8 @@ public class HandCardManager : MonoBehaviour
             item = curPreviewCard.handCard;
         }
         cardList.Remove(item);
-        Destroy(item.gameObject);
+        //Destroy(item.gameObject);
+        item.gameObject.SetActive(false);
         cardCurCount--;
         UpdateCard();
     }

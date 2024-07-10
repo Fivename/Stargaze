@@ -1804,6 +1804,8 @@ MonoBehaviour:
   cost: 0
   power: 0
   path: 
+  cardType: 0
+  chooseType: 0
   thisCards: []
   cardId: {fileID: 5775571263976684338}
   cardName: {fileID: 8535769525593353172}

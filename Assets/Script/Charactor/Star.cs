@@ -7,22 +7,28 @@ using UnityEngine;
 [Serializable]
 public class Star
 {
-    public int StarID;
-    public string Name;
-    public string Description;
-    public int Hp;
-    public int Attack;
+    public int starID;
+    public string name;
+    public string description;
+    public string iconPath;
+    public int hp;
+    public int attack;
     public List<Intension> intensions;
     public Star()
     {
 
     }
-    public Star(int starID,string name,string description,int hp,int attack)
+    public Star(int starID,string name,string description,string iconPath,int hp,int attack)
     {
 
     }
 }
-public class NormalStar : Star
+public class StarEntity : Star
+{
+    public int curHp;
+    public int curMaxHp;
+}
+public class NormalStar : StarEntity
 {
     
 }

@@ -65,12 +65,15 @@
     <Compile Include="Assets\Script\CardDesign\Card.cs" />
     <Compile Include="Assets\Script\CardDesign\PlayerDeck.cs" />
     <Compile Include="Assets\Script\Manager\BattleManager.cs" />
+    <Compile Include="Assets\Script\ItemDesign\Item.cs" />
     <Compile Include="Assets\Script\CardDesign\CardDatabase.cs" />
     <Compile Include="Assets\Script\Manager\HandCardManager.cs" />
     <Compile Include="Assets\Script\CardDesign\CardItem.cs" />
     <Compile Include="Assets\Script\Manager\PlayerManager.cs" />
     <Compile Include="Assets\Script\CardDesign\Buff.cs" />
     <Compile Include="Assets\Script\CardDesign\CardBack.cs" />
+    <Compile Include="Assets\Script\Charactor\StarDataView.cs" />
+    <Compile Include="Assets\Script\Manager\ManagerController.cs" />
     <Compile Include="Assets\Script\Charactor\Player.cs" />
     <Compile Include="Assets\Script\Tool\Tool.cs" />
     <Compile Include="Assets\Script\Charactor\Star.cs" />
