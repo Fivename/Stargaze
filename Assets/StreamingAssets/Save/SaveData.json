@@ -1,0 +1,43 @@
+﻿
+{
+    "id" : 1,
+    "name" : "None",
+    "description" : "\u9020\u6210{0}\u70B9\u4F24\u5BB3\uFF0C\u5E76\u4E14\u9020\u6210\u62A4\u7532\u7684{1}\u500D\u4F24\u5BB3",
+    "descriptTypeList" : [
+        {
+            "desType" : 0,
+            "chooseType" : 1,
+            "infType"    : 0
+        },
+        {
+            "desType" : 0,
+            "chooseType" : 1,
+            "infType"    : 2
+        }
+    ],
+    "baseCost"         : 1,
+    "level"            : 1,
+    "rare"             : 0,
+    "path"             : "Image/1",
+    "cardType"         : 0,
+    "chooseType"       : 1,
+    "defEffectList"    : [
+        {
+            "type" : 0,
+            "num"  : 5,
+            "coefs" : [
+                {
+                    "infType" : 1,
+                    "coef"    : 0.5,
+                    "infByOther" : false
+                },
+                {
+                    "infType" : 2,
+                    "coef"    : 2,
+                    "infByOther" : false
+                }
+            ],
+            "chooseType" : 1
+        }
+    ]
+}

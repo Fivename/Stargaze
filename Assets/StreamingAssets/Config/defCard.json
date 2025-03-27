@@ -1,0 +1,111 @@
+﻿
+[
+    {
+        "id" : 1,
+        "name" : "\u5360\u661F\u653B\u51FB\uFF01",
+        "description" : "\u7B2C\u4E00\u5F20\u666E\u901A\u653B\u51FB\u5361\u6A21\u677F",
+        "descriptTypeList" : [
+            {
+                "desType" : 0,
+                "chooseType" : 1,
+                "infType"    : 0
+            }
+        ],
+        "baseCost"         : 1,
+        "level"            : 1,
+        "rare"             : 0,
+        "path"             : "Image/1",
+        "cardType"         : 0,
+        "chooseType"       : 1,
+        "defEffectList"    : [
+            {
+                "type" : 0,
+                "num"  : 5,
+                "coefs" : [
+                ],
+                "chooseType" : 1
+            }
+        ]
+    },
+    {
+        "id" : 2,
+        "name" : "\u5360\u661F\u9632\u5FA1\uFF01",
+        "description" : "\u7B2C\u4E00\u5F20\u666E\u901A\u9632\u5FA1\u5361\u6A21\u677F",
+        "descriptTypeList" : [
+            {
+                "desType" : 1,
+                "chooseType" : 0,
+                "infType"    : 0
+            }
+        ],
+        "baseCost"         : 1,
+        "level"            : 1,
+        "rare"             : 0,
+        "path"             : "Image/2",
+        "cardType"         : 1,
+        "chooseType"       : 0,
+        "defEffectList"    : [
+            {
+                "type" : 1,
+                "num"  : 3,
+                "coefs" : [
+                ],
+                "chooseType" : 0
+            }
+        ]
+    },
+    {
+        "id" : 3,
+        "name" : "\u5360\u661F\u8FC5\u51FB\uFF01",
+        "description" : "\u7B2C\u4E00\u5F20\u666E\u901A\u653B\u51FB\u5361",
+        "descriptTypeList" : [
+            {
+                "desType" : 0,
+                "chooseType" : 1,
+                "infType"    : 0
+            }
+        ],
+        "baseCost"         : 2,
+        "level"            : 1,
+        "rare"             : 0,
+        "path"             : "Image/3",
+        "cardType"         : 0,
+        "chooseType"       : 1,
+        "defEffectList"    : [
+            {
+                "type" : 1,
+                "num"  : 10,
+                "coefs" : [
+                ],
+                "chooseType" : 1
+            }
+        ]
+    },
+    {
+        "id" : 4,
+        "name" : "\u5360\u661F\u77AC\u5FA1\uFF01",
+        "description" : "\u7B2C\u4E00\u5F20\u666E\u901A\u9632\u5FA1\u5361\u6A21\u677F",
+        "descriptTypeList" : [
+            {
+                "desType" : 1,
+                "chooseType" : 0,
+                "infType"    : 0
+            }
+        ],
+        "baseCost"         : 2,
+        "level"            : 1,
+        "rare"             : 0,
+        "path"             : "Image/4",
+        "cardType"         : 1,
+        "chooseType"       : 0,
+        "defEffectList"    : [
+            {
+                "type" : 1,
+                "num"  : 6,
+                "coefs" : [
+                ],
+                "chooseType" : 0
+            }
+        ]
+    }
+]

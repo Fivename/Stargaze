@@ -1798,15 +1798,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c46cffb807f8e943bbdee5c74505808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
-  name: 
-  description: 
-  cost: 0
-  power: 0
-  path: 
-  cardType: 0
-  chooseType: 0
-  thisCards: []
+  card:
+    id: 1
+    name: "\u5360\u535C"
+    description: "\u7B2C\u4E00\u5F20\u6D4B\u8BD5\u5361"
+    cost: 1
+    power: 0
+    level: 1
+    path: Image/1
+    cardType: 0
+    chooseType: 0
+    defEffects:
+    - type: 0
+      num: 1
+    - type: 1
+      num: 1
   cardId: {fileID: 5775571263976684338}
   cardName: {fileID: 8535769525593353172}
   cardDescription: {fileID: 1655564218696019941}

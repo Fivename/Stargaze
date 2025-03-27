@@ -11,21 +11,16 @@ public class HandCardManager : MonoBehaviour
     /// 卡牌起始位置  
     /// </summary>  
     public Vector3 rootPos;
-    /// <summary>  
-    /// 卡牌对象  
-    /// </summary>  
     public GameObject HandCard;
+    public GameObject HandCardPos;
     /// <summary>  
     /// 扇形半径  
     /// </summary>  
     public float size;
     /// <summary>  
-    /// 卡牌出现最右角度
+    /// 卡牌出现最右/左角度
     /// </summary>  
     [SerializeField]private float rightPos;
-    /// <summary>  
-    /// 卡牌出现最左角度  
-    /// </summary>  
     [SerializeField]private float leftPos;
     /// <summary>
     /// 卡牌出校位置
@@ -39,22 +34,19 @@ public class HandCardManager : MonoBehaviour
     /// 选中卡牌时 其他卡牌扩展角度
     /// </summary>
     [SerializeField] private float selectExtendDegree = 1;
+    /// <summary>
+    /// 鼠标在屏幕上的位
+    /// </summary>
+    [SerializeField] private float horizonPosY = -0.1f;
+    /// <summary>
+    /// 选定目标类卡牌选择目标时，卡牌在手牌区的中心位置
+    /// </summary>
+    [SerializeField] private Vector3 selectedMidPos;
+
     [Header("手牌数据")]
-    /// <summary>
-    /// 最大手牌数量
-    /// </summary>
     [SerializeField] private int CardMaxCount;
-    /// <summary>
-    /// 手牌池子
-    /// </summary>
     [SerializeField] List<GameObject> cardPool;
-    /// <summary>
-    /// 当前手牌数量
-    /// </summary>
-    private int cardCurCount = 0;
-    /// <summary>  
-    /// 手牌列表  
-    /// </summary>  
+    private int cardCurCount = 0; 
     private List<HandCard> cardList;
     /// <summary>  
     /// 手牌位置  
@@ -75,11 +67,19 @@ public class HandCardManager : MonoBehaviour
     private CardItem curSelectCard;
     private CardItem curPreviewCard;
     private Vector3 oldmousePosition;
-    [SerializeField]private int curSelectIndex;
+    private Vector3 mousePos;
+    [Header("射线检测")]
+    private Ray ray;
+    private RaycastHit hit;
+    private LayerMask layerMask;
+    [SerializeField] private int curSelectIndex;
+    [SerializeField] public PlayerDeck playerDeck;
+    private StarDataView targetStar;
     //private float balance = 0f;
     void Start()
     {
         UpdateCard();
+        layerMask = LayerMask.GetMask("Card");
     }
     void Update()
     {
@@ -132,6 +132,7 @@ public class HandCardManager : MonoBehaviour
     }
     // Update is called once per frame  
     public bool isDebug = false;
+    //射线检测
     public void SelectItemDetection()
     {
         if (oldmousePosition == Input.mousePosition)
@@ -143,7 +144,7 @@ public class HandCardManager : MonoBehaviour
     /// <summary>  
     /// 添加卡牌  
     /// </summary>  
-    public void AddCard()
+    public bool AddCard()
     {
         if (cardList == null)
         {
@@ -152,16 +153,26 @@ public class HandCardManager : MonoBehaviour
         if (cardList.Count >= CardMaxCount)
         {
             Debug.Log("手牌数量上限");
-            return;
+            return false;
         }
         cardCurCount++;
         UpdateCard();
         GameObject item = GetCard();
         item.transform.localPosition = cardPos.localPosition;
-        HandCard text = item.GetComponent<HandCard>();
-        text.isHandCard = true;
-        cardList.Add(text);
-        text.RefreshData(rootPos, 0, 0, -1);
+        HandCard handCard = item.GetComponent<HandCard>();
+        handCard.isHandCard = true;
+        cardList.Add(handCard);
+        handCard.RefreshData(rootPos, 0, 0, -1);
+        CardItem cardItem = item.GetComponent<CardItem>();
+        cardItem.UpdateData(playerDeck.DrawCard());
+        return true;
+    }
+    public void AddCard(int num)
+    {
+        for (int i = 0; i < num; i++)
+        {
+            if (!AddCard()) break;
+        }
     }
     /// <summary>  
     /// 手牌状态刷新  
@@ -237,29 +248,48 @@ public class HandCardManager : MonoBehaviour
     /// </summary>  
     public void TaskItemDetection()
     {
+        //加牌
         if (Input.GetKeyDown(KeyCode.A))
         {
             AddCard();
         }
-        if (Input.GetMouseButtonDown(0) && curPreviewCard!=null)
+        //按下左键 并且当前有预览卡牌
+        if (Input.GetMouseButtonDown(0) && curPreviewCard!=null && BattleManager.CardUseable) 
         {
             curPreviewCard.handCard.IsSelected = true;
             curSelectCard = curPreviewCard;
             curSelectIndex = curSelectCard.transform.GetSiblingIndex();
             curSelectCard.transform.SetAsLastSibling();
-            SetSelectCard(curSelectCard);
+            SetSelectCard(curSelectCard,setStart:true);
         }
+        //按住左键 并且当前有选择卡牌
         if(Input.GetMouseButton(0) && curSelectCard != null)
         {   
-            SetSelectCard(curSelectCard);
-            
+            SetSelectCard(curSelectCard);   
         }
+        //抬起左键 并且当前有选择卡牌
         if(Input.GetMouseButtonUp(0) && curSelectCard != null)
         {
             curSelectCard.transform.SetSiblingIndex(curSelectIndex);
             curSelectCard.handCard.IsSelected = false;
+            Debug.Log("Hide");
+            ManagerController.Instance.arrowEffectManager.ShowArrow(false);
+            Cursor.visible = true;
+            if (curSelectCard.card.chooseType == ChooseType.One)
+            {
+                targetStar = CheckStar();
+                if (targetStar != null)
+                {
+                    ManagerController.Instance.battleManager.UseCard(curSelectCard.card);
+                }
+            }
+            else
+            {
+                ManagerController.Instance.battleManager.UseCard(curSelectCard.card);
+            }
             curSelectCard = null;
         }
+        //删牌
         if (Input.GetKeyDown(KeyCode.D))
         {
             RemoveCard();
@@ -269,9 +299,7 @@ public class HandCardManager : MonoBehaviour
     public void PreviewCard()
     {
         oldmousePosition = Input.mousePosition;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        LayerMask layerMask = LayerMask.GetMask("Card");
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Physics.Raycast(ray, out hit, 1000, layerMask);
         if (hit.collider != null && hit.collider.gameObject != null)
         {
@@ -281,7 +309,8 @@ public class HandCardManager : MonoBehaviour
                 curPreviewCard.handCard.IsPreviewed = false;
             }
             curPreviewCard = hit.collider.gameObject.GetComponent<CardItem>();
-            //被选中就不是预览状态了
+
+            //被选中就是选中态 不是预览状态了
             if (!curPreviewCard.handCard.IsSelected)
             {
                 curPreviewCard.handCard.IsPreviewed = true;
@@ -301,12 +330,12 @@ public class HandCardManager : MonoBehaviour
         }
         //return;
     }
-    public void SetSelectCard(CardItem card)
+    public void SetSelectCard(CardItem card,bool setStart = false)
     {
-        Vector3 mousePos = Input.mousePosition;
+        mousePos = Input.mousePosition;
         mousePos.z = 0;
         Vector3 cardPos = Camera.main.ScreenToWorldPoint(mousePos);
-        if (curSelectCard.chooseType != ChooseType.One)
+        if (curSelectCard.card.chooseType != ChooseType.One)
         {
             curSelectCard.transform.position = cardPos;
             Vector3 localPos = curSelectCard.transform.localPosition;
@@ -316,7 +345,9 @@ public class HandCardManager : MonoBehaviour
         }
         else 
         {
-            if(cardPos.y < 100)
+            Debug.Log(cardPos);
+            //低于手牌区域---表示还在思考出牌
+            if(cardPos.y < horizonPosY)
             {
                 curSelectCard.transform.position = cardPos;
                 Vector3 localPos = curSelectCard.transform.localPosition;
@@ -324,15 +355,17 @@ public class HandCardManager : MonoBehaviour
                 curSelectCard.transform.localPosition = localPos;
                 curSelectCard.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
             }
+            //高于手牌区域---表示在思考选定目标
             else
             {
-                cardPos.y = 0;
-                curSelectCard.transform.position = cardPos;
-                Vector3 localPos = curSelectCard.transform.localPosition;
-                localPos.z = -100;//靠近相机
-                curSelectCard.transform.localPosition = localPos;
-                curSelectCard.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                //cardPos.y = 0;4
+                curSelectCard.transform.localPosition = selectedMidPos;
+                //curSelectCard.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
             }
+            //Debug.Log("show");
+            ManagerController.Instance.arrowEffectManager.ShowArrow(true);
+            if(setStart)ManagerController.Instance.arrowEffectManager.SetStartPos(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            Cursor.visible = false;
         }
     }
     /// <summary>
@@ -350,10 +383,19 @@ public class HandCardManager : MonoBehaviour
                 return card;
             }
         }
-        return Instantiate(HandCard, this.transform);
+        return Instantiate(HandCard, HandCardPos.transform);
     }
-    public void DrawBezel(Vector3 startPos,Vector3 targetPos)
+    //射线检测 鼠标上的目标
+    public StarDataView CheckStar()
     {
-
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        LayerMask layerMask = LayerMask.GetMask("Star");
+        Physics.Raycast(ray, out hit, 1000, layerMask);
+        if (hit.collider != null && hit.collider.gameObject != null)
+        {
+            return hit.collider.gameObject.GetComponentInParent<StarDataView>();
+        }
+        return null;
     }
 }

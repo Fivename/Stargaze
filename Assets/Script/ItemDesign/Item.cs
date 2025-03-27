@@ -9,13 +9,13 @@ public class Item
     public string description;
     public string icon;
     public EffectCount effectCount;
-    public List<Effect> effects;//效果列表
+    public List<ItemEffect> effects;//效果列表
 }
 /// <summary>
 /// 具体一个触发时机，会触发的效果和对应数值
 /// </summary>
 [Serializable]
-public struct Effect
+public struct ItemEffect
 {
     public EffectTime effectTime;//触发时机 如：回合开始时
     public List<EffectData> effectData;//触发效果列表，如：同时增加1力量和1护甲

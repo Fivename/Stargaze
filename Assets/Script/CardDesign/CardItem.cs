@@ -6,22 +6,21 @@ using UnityEngine.UI;
 
 public class CardItem : MonoBehaviour
 {
-    public int id;
-    public new string name;
-    public string description;
-    public int cost;
-    public int power;
-    public string path;
-    public CardType cardType;
-    public ChooseType chooseType;
+    //public int id;
+    //public new string name;
+    //public string description;
+    //public int cost;
+    //public int power;
+    //public string path;
+    //public CardType cardType;
+    //public ChooseType chooseType;
 
-    public List<Card> thisCards = new List<Card>();
+    public Card card = new Card();
 
     [SerializeField] private TextMeshProUGUI cardId;
     [SerializeField] private TextMeshProUGUI cardName;
     [SerializeField] private TextMeshProUGUI cardDescription;
     [SerializeField] private TextMeshProUGUI cardCost;
-    [SerializeField] private TextMeshProUGUI cardPower;
     [SerializeField] private Image cardImg;
     /// <summary>
     /// 卡背和手牌相关引用
@@ -35,24 +34,24 @@ public class CardItem : MonoBehaviour
     }
 
     public bool isFirst = false;
-    public void UpdateData()
+    public void UpdateData(Card card)
     {
-        id = thisCards[0].id;
-        name = thisCards[0].name;
-        description = thisCards[0].description;
-        cost = thisCards[0].cost;
-        power = thisCards[0].power;
-        path = thisCards[0].path;
-        cardType = thisCards[0].cardType;
-        chooseType = thisCards[0].chooseType;
+        this.card = card; 
+        //id = card.id;
+        //name = card.name;
+        //description = card.description;
+        //cost = card.cost;
+        //power = card.power;
+        //path = card.path;
+        //cardType = card.cardType;
+        //chooseType = card.chooseType;
 
-        cardId.text = id.ToString();
-        cardName.text = name;
-        cardDescription.text = description;
-        cardCost.text = cost.ToString();
-        cardPower.text = power.ToString();
-        cardImg.sprite = Resources.Load<Sprite>(path);
-        isFirst = false;
-        cardBack.isBack = true;
+        cardId.text = card.id.ToString();
+        cardName.text = card.name;
+        cardDescription.text = card.description;
+        //card.GetDescription();
+        cardCost.text = card.baseCost.ToString();
+        cardImg.sprite = Resources.Load<Sprite>(card.path);
+        cardBack.isBack = false;
     }
 }

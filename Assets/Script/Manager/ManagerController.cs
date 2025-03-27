@@ -20,7 +20,8 @@ public class ManagerController : MonoBehaviour
             return instance;
         }
     }
-    [SerializeField]public HandCardManager handCardManager;
-    [SerializeField]public BattleManager battleManager;
-    
+    [SerializeField] public HandCardManager handCardManager;
+    [SerializeField] public BattleManager battleManager;
+    [SerializeField] public ArrowEffectManager arrowEffectManager;
+
 }
