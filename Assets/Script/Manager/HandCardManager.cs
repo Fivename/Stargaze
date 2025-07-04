@@ -1,74 +1,73 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Timeline.Actions.MenuPriority;
 
 public class HandCardManager : MonoBehaviour
 {
-    [Header("ÊÖÅÆ¶¯»­²ÎÊı")]
+    [Header("æ‰‹ç‰ŒåŠ¨ç”»å‚æ•°")]
     /// <summary>  
-    /// ¿¨ÅÆÆğÊ¼Î»ÖÃ  
+    /// å¡ç‰Œèµ·å§‹ä½ç½®  
     /// </summary>  
     public Vector3 rootPos;
     public GameObject HandCard;
     public GameObject HandCardPos;
     /// <summary>  
-    /// ÉÈĞÎ°ë¾¶  
+    /// æ‰‡å½¢åŠå¾„  
     /// </summary>  
     public float size;
     /// <summary>  
-    /// ¿¨ÅÆ³öÏÖ×îÓÒ/×ó½Ç¶È
+    /// å¡ç‰Œå‡ºç°æœ€å³/å·¦è§’åº¦
     /// </summary>  
     [SerializeField]private float rightPos;
     [SerializeField]private float leftPos;
     /// <summary>
-    /// ¿¨ÅÆ³öĞ£Î»ÖÃ
+    /// å¡ç‰Œå‡ºæ ¡ä½ç½®
     /// </summary>
     [SerializeField] private Transform cardPos;
     /// <summary>
-    /// Ô¤ÀÀ¿¨ÅÆÊ± ÆäËû¿¨ÅÆÀ©Õ¹½Ç¶È
+    /// é¢„è§ˆå¡ç‰Œæ—¶ å…¶ä»–å¡ç‰Œæ‰©å±•è§’åº¦
     /// </summary>
     [SerializeField] private float extendDegree = 2;
     /// <summary>
-    /// Ñ¡ÖĞ¿¨ÅÆÊ± ÆäËû¿¨ÅÆÀ©Õ¹½Ç¶È
+    /// é€‰ä¸­å¡ç‰Œæ—¶ å…¶ä»–å¡ç‰Œæ‰©å±•è§’åº¦
     /// </summary>
     [SerializeField] private float selectExtendDegree = 1;
     /// <summary>
-    /// Êó±êÔÚÆÁÄ»ÉÏµÄÎ»
+    /// é¼ æ ‡åœ¨å±å¹•ä¸Šçš„ä½
     /// </summary>
     [SerializeField] private float horizonPosY = -0.1f;
     /// <summary>
-    /// Ñ¡¶¨Ä¿±êÀà¿¨ÅÆÑ¡ÔñÄ¿±êÊ±£¬¿¨ÅÆÔÚÊÖÅÆÇøµÄÖĞĞÄÎ»ÖÃ
+    /// é€‰å®šç›®æ ‡ç±»å¡ç‰Œé€‰æ‹©ç›®æ ‡æ—¶ï¼Œå¡ç‰Œåœ¨æ‰‹ç‰ŒåŒºçš„ä¸­å¿ƒä½ç½®
     /// </summary>
     [SerializeField] private Vector3 selectedMidPos;
 
-    [Header("ÊÖÅÆÊı¾İ")]
+    [Header("æ‰‹ç‰Œæ•°æ®")]
     [SerializeField] private int CardMaxCount;
     [SerializeField] List<GameObject> cardPool;
     private int cardCurCount = 0; 
     private List<HandCard> cardList;
     /// <summary>  
-    /// ÊÖÅÆÎ»ÖÃ  
+    /// æ‰‹ç‰Œä½ç½®  
     /// </summary>  
     [SerializeField]private List<float> rotPos;
     /// <summary>
-    /// ÆæÊıÎ»ÖÃ
+    /// å¥‡æ•°ä½ç½®
     /// </summary>
     [SerializeField] private List<float> oddPos;
     /// <summary>
-    /// Å¼ÊıÎ»ÖÃ
+    /// å¶æ•°ä½ç½®
     /// </summary>
     [SerializeField] private List<float> evenPos;
     /// <summary>
-    /// ±ÈÀı
+    /// æ¯”ä¾‹
     /// </summary>
     [SerializeField] private float upRate;
     private CardItem curSelectCard;
     private CardItem curPreviewCard;
     private Vector3 oldmousePosition;
     private Vector3 mousePos;
-    [Header("ÉäÏß¼ì²â")]
+    [Header("å°„çº¿æ£€æµ‹")]
     private Ray ray;
     private RaycastHit hit;
     private LayerMask layerMask;
@@ -83,20 +82,20 @@ public class HandCardManager : MonoBehaviour
     }
     void Update()
     {
-        SelectItemDetection();//ÉäÏß¼ì²â
+        SelectItemDetection();//å°„çº¿æ£€æµ‹
         TaskItemDetection();
         RefereshCard();
         //if(curPreviewCard!=null)Debug.Log(curPreviewCard.handCard.name);
     }
     /// <summary>  
-    /// Êı¾İ³õÊ¼»¯  
+    /// æ•°æ®åˆå§‹åŒ–  
     /// </summary>  
     public void UpdateCard()
     {
         rotPos = UpdateRotPos(cardCurCount);
     }
     /// <summary>  
-    /// ³õÊ¼»¯Î»ÖÃ  
+    /// åˆå§‹åŒ–ä½ç½®  
     /// </summary>  
     /// <param name="count"></param>    
     /// <param name="interval"></param>    
@@ -132,7 +131,7 @@ public class HandCardManager : MonoBehaviour
     }
     // Update is called once per frame  
     public bool isDebug = false;
-    //ÉäÏß¼ì²â
+    //å°„çº¿æ£€æµ‹
     public void SelectItemDetection()
     {
         if (oldmousePosition == Input.mousePosition)
@@ -142,7 +141,7 @@ public class HandCardManager : MonoBehaviour
         PreviewCard();
     }
     /// <summary>  
-    /// Ìí¼Ó¿¨ÅÆ  
+    /// æ·»åŠ å¡ç‰Œ  
     /// </summary>  
     public bool AddCard()
     {
@@ -152,7 +151,7 @@ public class HandCardManager : MonoBehaviour
         }
         if (cardList.Count >= CardMaxCount)
         {
-            Debug.Log("ÊÖÅÆÊıÁ¿ÉÏÏŞ");
+            Debug.Log("æ‰‹ç‰Œæ•°é‡ä¸Šé™");
             return false;
         }
         cardCurCount++;
@@ -175,7 +174,7 @@ public class HandCardManager : MonoBehaviour
         }
     }
     /// <summary>  
-    /// ÊÖÅÆ×´Ì¬Ë¢ĞÂ  
+    /// æ‰‹ç‰ŒçŠ¶æ€åˆ·æ–°  
     /// </summary>  
     public void RefereshCard()
     {
@@ -210,7 +209,7 @@ public class HandCardManager : MonoBehaviour
         }
     }
     /// <summary>  
-    /// Ïú»Ù×îºóÒ»ÕÅ¿¨ÅÆ  
+    /// é”€æ¯æœ€åä¸€å¼ å¡ç‰Œ  
     /// </summary>  
     public void RemoveCard()
     {
@@ -230,7 +229,7 @@ public class HandCardManager : MonoBehaviour
         UpdateCard();
     }
     /// <summary>  
-    /// Ïú»ÙÖ¸¶¨¿¨ÅÆ  
+    /// é”€æ¯æŒ‡å®šå¡ç‰Œ  
     /// </summary>  
     /// <param name="item"></param>    
     public void RemoveCard(HandCard item)
@@ -244,16 +243,16 @@ public class HandCardManager : MonoBehaviour
     }
 
     /// <summary>  
-    /// Íæ¼Ò²Ù×÷¼ì²â  
+    /// ç©å®¶æ“ä½œæ£€æµ‹  
     /// </summary>  
     public void TaskItemDetection()
     {
-        //¼ÓÅÆ
+        //åŠ ç‰Œ
         if (Input.GetKeyDown(KeyCode.A))
         {
             AddCard();
         }
-        //°´ÏÂ×ó¼ü ²¢ÇÒµ±Ç°ÓĞÔ¤ÀÀ¿¨ÅÆ
+        //æŒ‰ä¸‹å·¦é”® å¹¶ä¸”å½“å‰æœ‰é¢„è§ˆå¡ç‰Œ
         if (Input.GetMouseButtonDown(0) && curPreviewCard!=null && BattleManager.CardUseable) 
         {
             curPreviewCard.handCard.IsSelected = true;
@@ -262,12 +261,12 @@ public class HandCardManager : MonoBehaviour
             curSelectCard.transform.SetAsLastSibling();
             SetSelectCard(curSelectCard,setStart:true);
         }
-        //°´×¡×ó¼ü ²¢ÇÒµ±Ç°ÓĞÑ¡Ôñ¿¨ÅÆ
+        //æŒ‰ä½å·¦é”® å¹¶ä¸”å½“å‰æœ‰é€‰æ‹©å¡ç‰Œ
         if(Input.GetMouseButton(0) && curSelectCard != null)
         {   
             SetSelectCard(curSelectCard);   
         }
-        //Ì§Æğ×ó¼ü ²¢ÇÒµ±Ç°ÓĞÑ¡Ôñ¿¨ÅÆ
+        //æŠ¬èµ·å·¦é”® å¹¶ä¸”å½“å‰æœ‰é€‰æ‹©å¡ç‰Œ
         if(Input.GetMouseButtonUp(0) && curSelectCard != null)
         {
             curSelectCard.transform.SetSiblingIndex(curSelectIndex);
@@ -289,7 +288,7 @@ public class HandCardManager : MonoBehaviour
             }
             curSelectCard = null;
         }
-        //É¾ÅÆ
+        //åˆ ç‰Œ
         if (Input.GetKeyDown(KeyCode.D))
         {
             RemoveCard();
@@ -303,14 +302,14 @@ public class HandCardManager : MonoBehaviour
         Physics.Raycast(ray, out hit, 1000, layerMask);
         if (hit.collider != null && hit.collider.gameObject != null)
         {
-            //¼ì²âµ½ĞÂ¿¨ÅÆ/Ã»¼ì²âµ½¿¨ÅÆ ¶¼ĞèÒª°ÑÖ®Ç°Ô¤ÀÀµÄ¿¨ÅÆµÄÔ¤ÀÀ×´Ì¬ÉèÎªfalse
+            //æ£€æµ‹åˆ°æ–°å¡ç‰Œ/æ²¡æ£€æµ‹åˆ°å¡ç‰Œ éƒ½éœ€è¦æŠŠä¹‹å‰é¢„è§ˆçš„å¡ç‰Œçš„é¢„è§ˆçŠ¶æ€è®¾ä¸ºfalse
             if (curPreviewCard != null)
             {
                 curPreviewCard.handCard.IsPreviewed = false;
             }
             curPreviewCard = hit.collider.gameObject.GetComponent<CardItem>();
 
-            //±»Ñ¡ÖĞ¾ÍÊÇÑ¡ÖĞÌ¬ ²»ÊÇÔ¤ÀÀ×´Ì¬ÁË
+            //è¢«é€‰ä¸­å°±æ˜¯é€‰ä¸­æ€ ä¸æ˜¯é¢„è§ˆçŠ¶æ€äº†
             if (!curPreviewCard.handCard.IsSelected)
             {
                 curPreviewCard.handCard.IsPreviewed = true;
@@ -323,7 +322,7 @@ public class HandCardManager : MonoBehaviour
         }
         if (curPreviewCard != null)
         {
-            //Ô­ÏÈÔ¤ÀÀµ½µÄ¿¨ÅÆÏÖÔÚÊó±ê²»ÔÚÉÏÃæ Ö»¿ÉÄÜÊÇÈ¡ÏûÊÍ·Å»òÕßÊó±êÒÆ¿ªÁË
+            //åŸå…ˆé¢„è§ˆåˆ°çš„å¡ç‰Œç°åœ¨é¼ æ ‡ä¸åœ¨ä¸Šé¢ åªå¯èƒ½æ˜¯å–æ¶ˆé‡Šæ”¾æˆ–è€…é¼ æ ‡ç§»å¼€äº†
             curPreviewCard.handCard.IsPreviewed = false;
             curPreviewCard.handCard.IsSelected = false;
             curPreviewCard = null;
@@ -339,23 +338,23 @@ public class HandCardManager : MonoBehaviour
         {
             curSelectCard.transform.position = cardPos;
             Vector3 localPos = curSelectCard.transform.localPosition;
-            localPos.z = -100;//¿¿½üÏà»ú
+            localPos.z = -100;//é è¿‘ç›¸æœº
             curSelectCard.transform.localPosition = localPos;
             curSelectCard.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
         }
         else 
         {
             Debug.Log(cardPos);
-            //µÍÓÚÊÖÅÆÇøÓò---±íÊ¾»¹ÔÚË¼¿¼³öÅÆ
+            //ä½äºæ‰‹ç‰ŒåŒºåŸŸ---è¡¨ç¤ºè¿˜åœ¨æ€è€ƒå‡ºç‰Œ
             if(cardPos.y < horizonPosY)
             {
                 curSelectCard.transform.position = cardPos;
                 Vector3 localPos = curSelectCard.transform.localPosition;
-                localPos.z = -100;//¿¿½üÏà»ú
+                localPos.z = -100;//é è¿‘ç›¸æœº
                 curSelectCard.transform.localPosition = localPos;
                 curSelectCard.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
             }
-            //¸ßÓÚÊÖÅÆÇøÓò---±íÊ¾ÔÚË¼¿¼Ñ¡¶¨Ä¿±ê
+            //é«˜äºæ‰‹ç‰ŒåŒºåŸŸ---è¡¨ç¤ºåœ¨æ€è€ƒé€‰å®šç›®æ ‡
             else
             {
                 //cardPos.y = 0;4
@@ -369,7 +368,7 @@ public class HandCardManager : MonoBehaviour
         }
     }
     /// <summary>
-    /// »ñÈ¡/Éú³É¿¨ÅÆÓÎÏ·ÎïÌå
+    /// è·å–/ç”Ÿæˆå¡ç‰Œæ¸¸æˆç‰©ä½“
     /// </summary>
     /// <returns></returns>
     public GameObject GetCard()
@@ -385,7 +384,7 @@ public class HandCardManager : MonoBehaviour
         }
         return Instantiate(HandCard, HandCardPos.transform);
     }
-    //ÉäÏß¼ì²â Êó±êÉÏµÄÄ¿±ê
+    //å°„çº¿æ£€æµ‹ é¼ æ ‡ä¸Šçš„ç›®æ ‡
     public StarDataView CheckStar()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

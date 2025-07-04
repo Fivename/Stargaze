@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -23,7 +23,7 @@ public class CardItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI cardCost;
     [SerializeField] private Image cardImg;
     /// <summary>
-    /// ¿¨±³ºÍÊÖÅÆÏà¹ØÒıÓÃ
+    /// å¡èƒŒå’Œæ‰‹ç‰Œç›¸å…³å¼•ç”¨
     /// </summary>
     public CardBack cardBack;
     public HandCard handCard;

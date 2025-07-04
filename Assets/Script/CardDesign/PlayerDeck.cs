@@ -1,9 +1,9 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 /// <summary>
-/// Íæ¼ÒµÄÌ×ÅÆ
+/// ç©å®¶çš„å¥—ç‰Œ
 /// </summary>
 [System.Serializable]
 public class PlayerDeck : MonoBehaviour
@@ -26,7 +26,7 @@ public class PlayerDeck : MonoBehaviour
         }
     }
     public int curSize;
-    public GameObject[] deckBack;//¿¨±³
+    public GameObject[] deckBack;//å¡èƒŒ
     public Button previewSetBtn;
     public Button previewDeckBtn;
     public Button previewDiscardPileBtn;
@@ -40,7 +40,7 @@ public class PlayerDeck : MonoBehaviour
     public void InitDeck()
     {
         //decksize 
-        set = Player.GetInstance().cardSet;
+        set = Character.Instance.cardSet;
         for (int i = 0; i < set.Count; i++)
         {
             //deck.Add(CardDatabase.GetInstance().cards[i]);

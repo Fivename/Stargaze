@@ -1,32 +1,32 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ÊÖÅÆÔ¤ÖÆ¼ş
+/// æ‰‹ç‰Œé¢„åˆ¶ä»¶
 /// </summary>
 public class HandCard : MonoBehaviour
 {
     /// <summary>  
-    /// ¿¨ÅÆÉÈĞÎÕ¹¿ªÖĞĞÄµã  
+    /// å¡ç‰Œæ‰‡å½¢å±•å¼€ä¸­å¿ƒç‚¹  
     /// </summary>  
     public Vector3 root;
     /// <summary>  
-    /// Õ¹¿ª»¡¶È  
+    /// å±•å¼€å¼§åº¦  
     /// </summary>  
     public float rot;
     /// <summary>  
-    /// Õ¹¿ª°ë¾¶  
+    /// å±•å¼€åŠå¾„  
     /// </summary>  
     public float size;
     /// <summary>  
-    /// ¶¯»­ËÙ¶È  
+    /// åŠ¨ç”»é€Ÿåº¦  
     /// </summary>  
     public float animSpeed = 10;
     /// <summary>  
-    /// ¸ß¶ÈÖµ£¨¾ö¶¨¿¨ÅÆ²ã¼¶£©  
+    /// é«˜åº¦å€¼ï¼ˆå†³å®šå¡ç‰Œå±‚çº§ï¼‰  
     /// </summary>  
     public float zPos = 0;
-    [Header("ÊÇÊÖÅÆ")]
+    [Header("æ˜¯æ‰‹ç‰Œ")]
     [SerializeField]public bool isHandCard = false;
     [SerializeField]private bool isSelected = false;
     [SerializeField]private bool isPreviewed;
@@ -70,12 +70,12 @@ public class HandCard : MonoBehaviour
     }
     public void SetPos()
     {
-        //ÉèÖÃ¿¨ÅÆÎ»ÖÃ  
+        //è®¾ç½®å¡ç‰Œä½ç½®  
         float y = root.y + Mathf.Cos(rot) * size;
         float x = root.x + Mathf.Sin(rot) * size *-1;
         //Vector3 localPos = new Vector3(transform.localPosition.x,transform.localPosition.y,transform.)
         transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(x, y, root.z), Time.deltaTime * animSpeed);
-        //ÉèÖÃ¿¨ÅÆ½Ç¶È  
+        //è®¾ç½®å¡ç‰Œè§’åº¦  
         if (transform.localPosition.z > 10)
         {
             Debug.Log("1");
@@ -85,32 +85,32 @@ public class HandCard : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationQuaternion, Time.deltaTime * animSpeed * 30);
     }
     /// <summary>  
-    /// »ñÈ¡Á½¸öÏòÁ¿Ö®¼äµÄ»¡¶ÈÖµ0-2¦Ğ  
-    /// </summary>    /// <param name="positionA">µãA×ø±ê</param>  
-    /// <param name="positionB">µãB×ø±ê</param>  
+    /// è·å–ä¸¤ä¸ªå‘é‡ä¹‹é—´çš„å¼§åº¦å€¼0-2Ï€  
+    /// </summary>    /// <param name="positionA">ç‚¹Aåæ ‡</param>  
+    /// <param name="positionB">ç‚¹Båæ ‡</param>  
     /// <returns></returns>    
     public static float GetAngleInDegrees(Vector3 positionA, Vector3 positionB)
     {
-        // ¼ÆËã´ÓAÖ¸ÏòBµÄÏòÁ¿  
+        // è®¡ç®—ä»AæŒ‡å‘Bçš„å‘é‡  
         Vector3 direction = positionB - positionA;
-        // ½«ÏòÁ¿±ê×¼»¯  
+        // å°†å‘é‡æ ‡å‡†åŒ–  
         Vector3 normalizedDirection = direction.normalized;
-        // ¼ÆËã¼Ğ½ÇµÄ»¡¶ÈÖµ  
+        // è®¡ç®—å¤¹è§’çš„å¼§åº¦å€¼  
         float dotProduct = Vector3.Dot(normalizedDirection, Vector3.up);
         float angleInRadians = Mathf.Acos(dotProduct);
 
-        //ÅĞ¶Ï¼Ğ½ÇµÄ·½Ïò£ºÍ¨¹ı¼ÆËãÒ»¸ö²Î¿¼ÏòÁ¿ÓëÁ½¸öÎïÌåÖ®¼äµÄ²æ³Ë£¬¿ÉÒÔÈ·¶¨¼Ğ½ÇÊÇË³Ê±Õë»¹ÊÇÄæÊ±Õë·½Ïò¡£Õâ½«°ïÖúÎÒÃÇ½«¼Ğ½ÇµÄ·¶Î§À©Õ¹µ½0µ½360¶È¡£  
+        //åˆ¤æ–­å¤¹è§’çš„æ–¹å‘ï¼šé€šè¿‡è®¡ç®—ä¸€ä¸ªå‚è€ƒå‘é‡ä¸ä¸¤ä¸ªç‰©ä½“ä¹‹é—´çš„å‰ä¹˜ï¼Œå¯ä»¥ç¡®å®šå¤¹è§’æ˜¯é¡ºæ—¶é’ˆè¿˜æ˜¯é€†æ—¶é’ˆæ–¹å‘ã€‚è¿™å°†å¸®åŠ©æˆ‘ä»¬å°†å¤¹è§’çš„èŒƒå›´æ‰©å±•åˆ°0åˆ°360åº¦ã€‚  
         Vector3 cross = Vector3.Cross(normalizedDirection, Vector3.up);
         if (cross.z > 0)
         {
             angleInRadians = 2 * Mathf.PI - angleInRadians;
         }
-        // ½«»¡¶ÈÖµ×ª»»Îª½Ç¶ÈÖµ  
+        // å°†å¼§åº¦å€¼è½¬æ¢ä¸ºè§’åº¦å€¼  
         float angleInDegrees = angleInRadians * Mathf.Rad2Deg;
         return angleInDegrees;
     }
     /// <summary>
-    /// Íâ²¿Ñ¡ÖĞ¸Ã¿¨ 
+    /// å¤–éƒ¨é€‰ä¸­è¯¥å¡ 
     /// </summary>
     public void Select()
     {

@@ -1,9 +1,9 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-//µĞÈËÊôĞÔÉèÖÃ
+//æ•Œäººå±æ€§è®¾ç½®
 [Serializable]
 public class Star
 {

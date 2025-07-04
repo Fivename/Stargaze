@@ -1,12 +1,13 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
-    public static string defSaveFolderPos = Application.streamingAssetsPath + @"/Save/";
+    private string defSaveFolderPos;
     void Start()
     {
+        defSaveFolderPos = Application.persistentDataPath + @"/Save/";
         string imgPre = "Image/";
         List<CardEffect> cardEffectList = new List<CardEffect>();
         List<ExtraCoef> extraCoefList = new List<ExtraCoef>();
@@ -16,29 +17,29 @@ public class Menu : MonoBehaviour
         extraCoefList.Add(coef2);
         ChooseType chooseType = ChooseType.One;
         CardEffect cardEffect = new CardEffect(CardEffectType.Damage,5,extraCoefList,chooseType);
-        cardEffectList.Add(cardEffect);//¿¨ÅÆĞ§¹û
+        cardEffectList.Add(cardEffect);//å¡ç‰Œæ•ˆæœ
 
         List<DescriptType> desTypeList = new List<DescriptType>();
         DescriptType desType1 = new DescriptType(CardEffectType.Damage,ChooseType.One,InfType.None);
         DescriptType desType2 = new DescriptType(CardEffectType.Damage,ChooseType.One,InfType.Armor);
         desTypeList.Add(desType1);
-        desTypeList.Add(desType2);//Ğ§¹ûÃèÊö
+        desTypeList.Add(desType2);//æ•ˆæœæè¿°
 
-        Card card = new Card(1, "None", "Ôì³É{0}µãÉËº¦£¬²¢ÇÒÔì³É»¤¼×µÄ{1}±¶ÉËº¦", desTypeList, 1, 1, RareType.Normal, imgPre + "1", CardType.Attack, ChooseType.One,cardEffectList);
-        Card card2 = new Card(2, "None", "Ôì³É{0}µãÉËº¦£¬²¢ÇÒÔì³É»¤¼×µÄ{1}±¶ÉËº¦", desTypeList, 1, 1, RareType.Normal, imgPre + "1", CardType.Attack, ChooseType.One,cardEffectList);
+        Card card = new Card(1, "None", "é€ æˆ{0}ç‚¹ä¼¤å®³ï¼Œå¹¶ä¸”é€ æˆæŠ¤ç”²çš„{1}å€ä¼¤å®³", desTypeList, 1, 1, RareType.Normal, imgPre + "1", CardType.Attack, ChooseType.One,cardEffectList);
+        Card card2 = new Card(2, "None", "é€ æˆ{0}ç‚¹ä¼¤å®³ï¼Œå¹¶ä¸”é€ æˆæŠ¤ç”²çš„{1}å€ä¼¤å®³", desTypeList, 1, 1, RareType.Normal, imgPre + "1", CardType.Attack, ChooseType.One,cardEffectList);
         card.GetDescription();
         string saveJson = defSaveFolderPos + "SaveData.json";
 
 
-        Save.SaveTest(card, saveJson);//µ¥ÕÅ¿¨²âÊÔ´æµµ
-        Card loadCard = Save.LoadTest<Card>(saveJson);
+        Save.SaveData(card, saveJson);//å•å¼ å¡æµ‹è¯•å­˜æ¡£
+        Card loadCard = Save.LoadData<Card>(saveJson);
 
         List<Card> cards = new List<Card>();
         cards.Add(card);
         cards.Add(card2);
         string cardsJson = defSaveFolderPos + "cardsJson.json";
-        Save.SaveTest(cards, cardsJson);//¶à¿¨²âÊÔ´æµµ
-        List<Card> loadCards = Save.LoadTest<List<Card>>(cardsJson);
+        Save.SaveData(cards, cardsJson);//å¤šå¡æµ‹è¯•å­˜æ¡£
+        List<Card> loadCards = Save.LoadData<List<Card>>(cardsJson);
     }
 
     // Update is called once per frame

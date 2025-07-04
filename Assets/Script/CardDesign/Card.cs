@@ -1,24 +1,24 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// ¿¨ÅÆµÄÄ£°å/Ì×ÅÆÄÚµÄ¿¨ÅÆ ÊôĞÔÊÇ¹Ì¶¨µÄ
+/// å¡ç‰Œçš„æ¨¡æ¿/å¥—ç‰Œå†…çš„å¡ç‰Œ å±æ€§æ˜¯å›ºå®šçš„
 /// </summary>
 [System.Serializable]
 public class Card
 {
     [SerializeField]public int id;
-    [SerializeField] public string name;//¿¨ÅÆÃû³Æ
-    [SerializeField] public string description;//ÃèÊö£ºÃ¿µã»¤¼×¶ÔËùÓĞµĞÈËÔì³É{0}µãÉËº¦¡£¶ÔÄ¿±êÔì³É{1}µãÉËº¦£¬²¢»Ø¸´×ÔÉí{2}µãÉúÃüÖµ¡£
-    [SerializeField] public List<DescriptType> descriptTypeList;//ÃèÊöÊıÖµµÄÀà±ğÁĞ±í0£ºÉËº¦-ËùÓĞÄ¿±ê-ÏµÊıÎª»¤¼× -¡·ÕÒÏµÊı 
-    [SerializeField] public int baseCost;//»ù´¡·ÑÓÃ ¶îÍâ·ÑÓÃ¿¨ÅÆ£ºx£¬1+x,2+x
-    [SerializeField] public int level;//¿¨ÅÆµÈ¼¶
-    [SerializeField] public RareType rare;//¿¨ÅÆÏ¡ÓĞ¶È
-    [SerializeField] public string path;//¿¨ÅÆimgÂ·¾¶
-    [SerializeField] public CardType cardType;//¿¨ÅÆÀàĞÍ
-    [SerializeField] public ChooseType chooseType;//Ä¿±êÊıÁ¿
-    [SerializeField] public List<CardEffect> defEffectList;//¿¨ÅÆĞ§¹ûÁĞ±í
+    [SerializeField] public string name;//å¡ç‰Œåç§°
+    [SerializeField] public string description;//æè¿°ï¼šæ¯ç‚¹æŠ¤ç”²å¯¹æ‰€æœ‰æ•Œäººé€ æˆ{0}ç‚¹ä¼¤å®³ã€‚å¯¹ç›®æ ‡é€ æˆ{1}ç‚¹ä¼¤å®³ï¼Œå¹¶å›å¤è‡ªèº«{2}ç‚¹ç”Ÿå‘½å€¼ã€‚
+    [SerializeField] public List<DescriptType> descriptTypeList;//æè¿°æ•°å€¼çš„ç±»åˆ«åˆ—è¡¨0ï¼šä¼¤å®³-æ‰€æœ‰ç›®æ ‡-ç³»æ•°ä¸ºæŠ¤ç”² -ã€‹æ‰¾ç³»æ•° 
+    [SerializeField] public int baseCost;//åŸºç¡€è´¹ç”¨ é¢å¤–è´¹ç”¨å¡ç‰Œï¼šxï¼Œ1+x,2+x
+    [SerializeField] public int level;//å¡ç‰Œç­‰çº§
+    [SerializeField] public RareType rare;//å¡ç‰Œç¨€æœ‰åº¦
+    [SerializeField] public string path;//å¡ç‰Œimgè·¯å¾„
+    [SerializeField] public CardType cardType;//å¡ç‰Œç±»å‹
+    [SerializeField] public ChooseType chooseType;//ç›®æ ‡æ•°é‡
+    [SerializeField] public List<CardEffect> defEffectList;//å¡ç‰Œæ•ˆæœåˆ—è¡¨
     public Card() { }
     
     public Card(int id,string name ,string description ,List<DescriptType> descriptTypeList,int baseCost ,int level,RareType rare,string path,CardType cardType, ChooseType chooseType,List<CardEffect> defEffectList = null)
@@ -44,18 +44,18 @@ public class Card
             foreach (var cardEffect in defEffectList)
             {
                 if(cardEffect.type == des.desType && cardEffect.chooseType == des.chooseType)
-                {//È·¶¨Êı×ÖÃèÊöµÄÊÇÉËº¦»¹ÊÇ·ÀÓùµÈµÄÀàĞÍ£¬²¢ÇÒÈ·¶¨µÄÃèÊöµÄÄ¿±êÊı¡£
-                    Debug.Log("1:ÀàĞÍÊÇ:" + cardEffect.type.ToString() + "²¢ÇÒ×÷ÓÃÄ¿±êÊÇ£º" + cardEffect.chooseType);
+                {//ç¡®å®šæ•°å­—æè¿°çš„æ˜¯ä¼¤å®³è¿˜æ˜¯é˜²å¾¡ç­‰çš„ç±»å‹ï¼Œå¹¶ä¸”ç¡®å®šçš„æè¿°çš„ç›®æ ‡æ•°ã€‚
+                    Debug.Log("1:ç±»å‹æ˜¯:" + cardEffect.type.ToString() + "å¹¶ä¸”ä½œç”¨ç›®æ ‡æ˜¯ï¼š" + cardEffect.chooseType);
                     if (des.infType != 0)
-                    {//ÔÙÈ·¶¨ÊÇÃèÊöµÄÊÇ¸ù¾İÏµÊıËãµÄÖµ»¹ÊÇ¹Ì¶¨ÊıÖµ¡£
-                        //Èç¹ûÊÇÏµÊı£¬ÊÇ¸ù¾İÄÄÀàÏµÊı
+                    {//å†ç¡®å®šæ˜¯æè¿°çš„æ˜¯æ ¹æ®ç³»æ•°ç®—çš„å€¼è¿˜æ˜¯å›ºå®šæ•°å€¼ã€‚
+                        //å¦‚æœæ˜¯ç³»æ•°ï¼Œæ˜¯æ ¹æ®å“ªç±»ç³»æ•°
                         foreach (var coef in cardEffect.coefs)
                         {
                             if(coef.infType == des.infType)
                             {
                                 desList.Add(coef.coef.ToString());
-                                Debug.Log("2:×÷ÓÃµÄÏµÊıÀà±ğÊÇ£º" + coef.infType);
-                                Debug.Log("3:×÷ÓÃµÄÏµÊıÊıÖµÊÇ£º" + coef.coef);
+                                Debug.Log("2:ä½œç”¨çš„ç³»æ•°ç±»åˆ«æ˜¯ï¼š" + coef.infType);
+                                Debug.Log("3:ä½œç”¨çš„ç³»æ•°æ•°å€¼æ˜¯ï¼š" + coef.coef);
                                 break;
                             }
                         }
@@ -63,7 +63,7 @@ public class Card
                     else
                     {
                         desList.Add(cardEffect.num.ToString());
-                        Debug.Log("2:×÷ÓÃµÄÊıÖµÊÇ£º" + cardEffect.num);
+                        Debug.Log("2:ä½œç”¨çš„æ•°å€¼æ˜¯ï¼š" + cardEffect.num);
                     }
                 }
             }
@@ -73,8 +73,8 @@ public class Card
     }
 }
 /// <summary>
-/// Õ½¶·ÄÚµÄ¿¨ÅÆ£¬ÓĞĞ©ÊıÖµ»á¸ù¾İÕ½¶·½øĞĞ±ä»¯
-/// ³õÊ¼¿¨ÅÆÓÉ×Ô´øÌ×ÅÆÉú³ÉÎªĞÂ
+/// æˆ˜æ–—å†…çš„å¡ç‰Œï¼Œæœ‰äº›æ•°å€¼ä¼šæ ¹æ®æˆ˜æ–—è¿›è¡Œå˜åŒ–
+/// åˆå§‹å¡ç‰Œç”±è‡ªå¸¦å¥—ç‰Œç”Ÿæˆä¸ºæ–°
 /// </summary>
 public class BatCard : Card
 {
@@ -113,11 +113,11 @@ public enum CardType
 [Serializable]
 public enum CardEffectType
 {
-    Damage = 0,//ÉËº¦
-    Armor = 1,//»¤¼×
-    Heal = 2,//ÉúÃü
-    Cost = 3,//·ÑÓÃ
-    Power = 4,//Á¦Á¿
+    Damage = 0,//ä¼¤å®³
+    Armor = 1,//æŠ¤ç”²
+    Heal = 2,//ç”Ÿå‘½
+    Cost = 3,//è´¹ç”¨
+    Power = 4,//åŠ›é‡
 }
 [Serializable]
 public enum ChooseType
@@ -148,9 +148,9 @@ public enum RareType
 [Serializable]
 public struct CardEffect
 {
-    [SerializeField] public CardEffectType type;//¿¨ÅÆÓ°ÏìµÄĞ§¹û  -- ÉËº¦¡¢»¤¼×¡¢ÖÎÁÆµÈ
-    [SerializeField] public int num;//ÊıÖµ
-    [SerializeField] public List<ExtraCoef> coefs;//ÏµÊıÁĞ±í
+    [SerializeField] public CardEffectType type;//å¡ç‰Œå½±å“çš„æ•ˆæœ  -- ä¼¤å®³ã€æŠ¤ç”²ã€æ²»ç–—ç­‰
+    [SerializeField] public int num;//æ•°å€¼
+    [SerializeField] public List<ExtraCoef> coefs;//ç³»æ•°åˆ—è¡¨
     [SerializeField] public ChooseType chooseType;
     public CardEffect(CardEffectType type,int num,List<ExtraCoef> coefs,ChooseType chooseType)
     {
@@ -161,17 +161,17 @@ public struct CardEffect
     }
 }
 /// <summary>
-/// 1.ÏµÊıÖÖÀà
-/// 2.ÏµÊıÊıÖµ
-/// 3.ÊÇ·ñÊÜ¼ÓÉîÓ°Ïì
-/// Àı£ºÓ°ÏìÀàĞÍ£º»¤¼×£¬Ó°ÏìÏµÊı1£¬-¡·Ã¿µã»¤¼×Ôì³É1µãĞ§¹û  -¡·Ğ§¹ûÀàĞÍ£ºÉËº¦  =¡· Ã¿µã»¤¼×Ôì³É1µãÉËº¦
+/// 1.ç³»æ•°ç§ç±»
+/// 2.ç³»æ•°æ•°å€¼
+/// 3.æ˜¯å¦å—åŠ æ·±å½±å“
+/// ä¾‹ï¼šå½±å“ç±»å‹ï¼šæŠ¤ç”²ï¼Œå½±å“ç³»æ•°1ï¼Œ-ã€‹æ¯ç‚¹æŠ¤ç”²é€ æˆ1ç‚¹æ•ˆæœ  -ã€‹æ•ˆæœç±»å‹ï¼šä¼¤å®³  =ã€‹ æ¯ç‚¹æŠ¤ç”²é€ æˆ1ç‚¹ä¼¤å®³
 /// </summary>
 [Serializable]
 public struct ExtraCoef
 {
-    [SerializeField] public InfType infType;//ÏµÊıÓ°ÏìÊı -- »ùÓÚ×Ô¼º/Ä¿±êÉúÃüÖµ/»¤¼×µÈÉËº¦Ó°Ïì
-    [SerializeField] public float coef;//Ó°ÏìÏµÊı 
-    [SerializeField] public bool infByOther;//ÊÇ·ñÊÜµ½ÉËº¦¼ÓÉîµÈÓ°Ïì
+    [SerializeField] public InfType infType;//ç³»æ•°å½±å“æ•° -- åŸºäºè‡ªå·±/ç›®æ ‡ç”Ÿå‘½å€¼/æŠ¤ç”²ç­‰ä¼¤å®³å½±å“
+    [SerializeField] public float coef;//å½±å“ç³»æ•° 
+    [SerializeField] public bool infByOther;//æ˜¯å¦å—åˆ°ä¼¤å®³åŠ æ·±ç­‰å½±å“
     public ExtraCoef(InfType infType,float coef,bool infByOther)
     {
         this.infType = infType;
@@ -182,9 +182,9 @@ public struct ExtraCoef
 [Serializable]
 public struct DescriptType
 {
-    public CardEffectType desType;//ÃèÊö¶ÔÓ¦µÄÊÇÊ²Ã´ÀàĞÍµÄÊıÖµ
-    public ChooseType chooseType;//ÃèÊö¶ÔÓ¦µÄÄ¿±êÊıÁ¿
-    public InfType infType;//ÃèÊö¶ÔÓ¦µÄÖµÊÇ·ñÓĞÏµÊı£¬²¢ÇÒÏµÊıÊÇÊ²Ã´ÀàĞÍµÄ
+    public CardEffectType desType;//æè¿°å¯¹åº”çš„æ˜¯ä»€ä¹ˆç±»å‹çš„æ•°å€¼
+    public ChooseType chooseType;//æè¿°å¯¹åº”çš„ç›®æ ‡æ•°é‡
+    public InfType infType;//æè¿°å¯¹åº”çš„å€¼æ˜¯å¦æœ‰ç³»æ•°ï¼Œå¹¶ä¸”ç³»æ•°æ˜¯ä»€ä¹ˆç±»å‹çš„
     public DescriptType(CardEffectType desType,ChooseType chooseType, InfType infType)
     {
         this.desType = desType;

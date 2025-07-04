@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 
 [Serializable]
@@ -9,16 +9,16 @@ public class Item
     public string description;
     public string icon;
     public EffectCount effectCount;
-    public List<ItemEffect> effects;//Ğ§¹ûÁĞ±í
+    public List<ItemEffect> effects;//æ•ˆæœåˆ—è¡¨
 }
 /// <summary>
-/// ¾ßÌåÒ»¸ö´¥·¢Ê±»ú£¬»á´¥·¢µÄĞ§¹ûºÍ¶ÔÓ¦ÊıÖµ
+/// å…·ä½“ä¸€ä¸ªè§¦å‘æ—¶æœºï¼Œä¼šè§¦å‘çš„æ•ˆæœå’Œå¯¹åº”æ•°å€¼
 /// </summary>
 [Serializable]
 public struct ItemEffect
 {
-    public EffectTime effectTime;//´¥·¢Ê±»ú Èç£º»ØºÏ¿ªÊ¼Ê±
-    public List<EffectData> effectData;//´¥·¢Ğ§¹ûÁĞ±í£¬Èç£ºÍ¬Ê±Ôö¼Ó1Á¦Á¿ºÍ1»¤¼×
+    public EffectTime effectTime;//è§¦å‘æ—¶æœº å¦‚ï¼šå›åˆå¼€å§‹æ—¶
+    public List<EffectData> effectData;//è§¦å‘æ•ˆæœåˆ—è¡¨ï¼Œå¦‚ï¼šåŒæ—¶å¢åŠ 1åŠ›é‡å’Œ1æŠ¤ç”²
 }
 [Serializable]
 public struct EffectData

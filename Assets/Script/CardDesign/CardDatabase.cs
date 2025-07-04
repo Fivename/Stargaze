@@ -1,4 +1,4 @@
-using LitJson;
+﻿using LitJson;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ public class CardDatabase : MonoBehaviour
         }
         return instance;
     }
-    [SerializeField] public List<Card> cards = new List<Card>();//
+    public List<Card> cards = new List<Card>();//
     public const string imgPre = "Image/";
     // Start is called before the first frame update
     void Awake()
@@ -33,6 +33,7 @@ public class CardDatabase : MonoBehaviour
         //cards.Add(new Card(8, "None", "Test card", desTypeList, 4,  1, RareType.Normal, imgPre + "4", CardType.Skill, ChooseType.None));
         //InitData();
         //SaveData();
+        LoadData();
     }
     public void LoadData()
     {
@@ -54,11 +55,11 @@ public class CardDatabase : MonoBehaviour
     }
     public void SaveData(object save, string configType)
     {
-        Save.SaveTest(save, Application.streamingAssetsPath + @"/Config/" + configType);
+        Save.SaveData(save, Application.persistentDataPath + @"/Config/" + configType);
     }
     public List<Card> LoadData(string configType)
     {
-       List<Card> config = Save.LoadTest<List<Card>>(Application.streamingAssetsPath + @"/Config/" + configType);
+       List<Card> config = Save.LoadData<List<Card>>(Application.persistentDataPath + @"/Config/" + configType);
         return config;
     }
 }

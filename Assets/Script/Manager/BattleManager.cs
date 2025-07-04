@@ -1,3 +1,4 @@
+ï»¿using R3;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,14 +11,14 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     public StarEntity curStar;
     public List<StarEntity> starList = new List<StarEntity>();
-    public Player player;
-    public BattlePlayer batPlayer = new BattlePlayer();
+    public Character character;
+    public BatCharacter batPlayer = new BatCharacter();
     [SerializeField]
     public PlayerDeck playerDeck;
     [SerializeField]
-    public PlayerDataView playerDataView;
+    public CharacterDataView playerDataView;
     /// <summary>
-    /// Õ½¶·Êı¾İ
+    /// æˆ˜æ–—æ•°æ®
     /// </summary>
     private int starHp;
     private int starMaxHp;
@@ -47,9 +48,9 @@ public class BattleManager : MonoBehaviour
 
     }
     /// <summary>
-    /// ¿¨ÅÆÊ¹ÓÃÊ±Ğ§¹ûÉúĞ§ÁĞ±í
-    /// °´Ê¹ÓÃÊ±µÄÊı¾İ¼ÆËã£¬ÔÙ°´Ë³Ğò´¦ÀíĞ§¹û
-    /// ·ÀÖ¹ÔÚÉúĞ§¹ı³ÌÖĞÊı¾İ±ä»¯µ¼ÖÂ¿¨ÃæºÍ½á¹û²»Ò»ÖÂ
+    /// å¡ç‰Œä½¿ç”¨æ—¶æ•ˆæœç”Ÿæ•ˆåˆ—è¡¨
+    /// æŒ‰ä½¿ç”¨æ—¶çš„æ•°æ®è®¡ç®—ï¼Œå†æŒ‰é¡ºåºå¤„ç†æ•ˆæœ
+    /// é˜²æ­¢åœ¨ç”Ÿæ•ˆè¿‡ç¨‹ä¸­æ•°æ®å˜åŒ–å¯¼è‡´å¡é¢å’Œç»“æœä¸ä¸€è‡´
     /// </summary>
     public struct CardUseEffect
     {
@@ -69,6 +70,7 @@ public class BattleManager : MonoBehaviour
     public Button endMainBtn;
     private void Awake()
     {
+        enterBtn.OnClickAsObservable().Subscribe( _=> EnterBattle()).AddTo(this);
         enterBtn.onClick.AddListener(EnterBattle);
         exitBtn.onClick.AddListener(EnterBattle);
         endMainBtn.onClick.AddListener(EndMain);
@@ -76,21 +78,20 @@ public class BattleManager : MonoBehaviour
     void Start()
     {
         StarDatabase.Init();
-        CardDatabase.GetInstance().LoadData();
-        GameInit();
+        
+        
        
     }
 
-    /// <summary>
-    /// ActionList
-    /// </summary>
 
     public static Action RefreshEvent;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            GameInit();
+        }
     }
     
     private void EnterBattle()
@@ -108,8 +109,8 @@ public class BattleManager : MonoBehaviour
     {
         //SetStar();
         //player = Player.GetInstance();
-        player = Player.GetDefPlayer();
-        batPlayer = batPlayer.InitBatPlayer(player);
+        character = Character.Instance;
+        batPlayer = batPlayer.InitBatCharacter(character);
         playerDeck.InitDeck();
         //starList = GetStar();
         //foreach (var star in starList)
@@ -131,7 +132,7 @@ public class BattleManager : MonoBehaviour
         return null;
     }
     /// <summary>
-    /// ÉèÖÃµĞÈËÊôĞÔ
+    /// è®¾ç½®æ•Œäººå±æ€§
     /// </summary>
     /// <param name="star"></param>
     public void SetStar(Star star)
@@ -139,7 +140,7 @@ public class BattleManager : MonoBehaviour
         curStar = new StarEntity(star);
         starHp = starMaxHp = curStar.hp;
     }
-    #region -------------------------------------½×¶Î´¦Àí
+    #region -------------------------------------é˜¶æ®µå¤„ç†
     private void PhaseChangeTo(Phase phase)
     {
         Debug.Log("change to phase:" + phase.ToString());
@@ -197,7 +198,7 @@ public class BattleManager : MonoBehaviour
     {
         CardUseable = false;
         ItemLoop(EffectTime.DisDrawStart);
-        //ÆúÅÆ½×¶ÎµÀ¾ßĞ§¹û Òì²½Ö´ĞĞÍê Ìø×ªµ½»ØºÏ½áÊø
+        //å¼ƒç‰Œé˜¶æ®µé“å…·æ•ˆæœ å¼‚æ­¥æ‰§è¡Œå®Œ è·³è½¬åˆ°å›åˆç»“æŸ
         PhaseChangeTo(Phase.EndStart);
     }
     private IEnumerator EndStart()
@@ -205,7 +206,7 @@ public class BattleManager : MonoBehaviour
         ItemLoop(EffectTime.EndStart);
         isPlayerPhase = false;
         yield return new WaitUntil(() => { return isPlayerPhase; });
-        //µÈ´ıµØ·½Ö´ĞĞÍêÔÙĞĞ¶¯
+        //ç­‰å¾…åœ°æ–¹æ‰§è¡Œå®Œå†è¡ŒåŠ¨
         PhaseChangeTo(Phase.TurnStart);
     }
     private void EndMain()
@@ -253,7 +254,7 @@ public class BattleManager : MonoBehaviour
         //RefreshEvent.Invoke();
     }
     /// <summary>
-    /// Ê¹ÓÃ¿¨ÅÆ
+    /// ä½¿ç”¨å¡ç‰Œ
     /// </summary>
     /// <param name="card"></param>
     /// <returns></returns>
@@ -262,7 +263,7 @@ public class BattleManager : MonoBehaviour
         if(card.baseCost <= curEnergy)
         {
             if (card.defEffectList == null || card.defEffectList.Count == 0) return true;
-            //±éÀú¿¨ÅÆËùÓĞĞ§¹û Ìí¼Óµ½Ğ§¹ûÁĞ±íÀïÃæ
+            //éå†å¡ç‰Œæ‰€æœ‰æ•ˆæœ æ·»åŠ åˆ°æ•ˆæœåˆ—è¡¨é‡Œé¢
             foreach (var effect in card.defEffectList)
             {
                 int inf = 0;
@@ -299,7 +300,7 @@ public class BattleManager : MonoBehaviour
                 }
                 
             }
-            //¿¨ÅÆÉúĞ§ÁĞ±í²»¿Õ  Ôò´¦Àí±íÄÚĞ§¹û
+            //å¡ç‰Œç”Ÿæ•ˆåˆ—è¡¨ä¸ç©º  åˆ™å¤„ç†è¡¨å†…æ•ˆæœ
             if (cardUseEffectList.Count > 0)
             {
                 foreach (var cardEffect in cardUseEffectList)
@@ -338,7 +339,7 @@ public class BattleManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ¼ÆËã±»Ó°ÏìµÄÊıÖµ
+    /// è®¡ç®—è¢«å½±å“çš„æ•°å€¼
     /// </summary>
     /// <param name="coef"></param>
     /// <param name="effect"></param>
